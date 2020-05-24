@@ -33,7 +33,9 @@ export class BaseApp{
     }
 
     constructor(){
-        this.renderer = new THREE.WebGLRenderer();
+        this.renderer = new THREE.WebGLRenderer({
+            antialias: true
+        });
         this.camera = new THREE.PerspectiveCamera();
         this.light = new THREE.DirectionalLight();
         this.scene = new THREE.Scene();        
@@ -47,6 +49,7 @@ export class BaseApp{
     }
 
     private onLoaded(): void {
+        this.renderer.domElement.setAttribute("id", "threejs_canvas");
         document.body.appendChild(this.renderer.domElement);
 
         const mainLoop = (): void => {
@@ -56,7 +59,6 @@ export class BaseApp{
         };
 
         this.Setup();
-        // this.onResized();
         mainLoop();
     }
 
