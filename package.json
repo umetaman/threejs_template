@@ -20,6 +20,6 @@
   },
   "dependencies": {
     "@types/three": "^0.103.2",
-    "three": "^0.112.1"
+    "three": "^0.137.0"
   }
 }
